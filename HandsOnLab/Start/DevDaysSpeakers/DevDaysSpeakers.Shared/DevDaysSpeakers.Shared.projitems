@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Speaker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AzureService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EmotionService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SpeakersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>

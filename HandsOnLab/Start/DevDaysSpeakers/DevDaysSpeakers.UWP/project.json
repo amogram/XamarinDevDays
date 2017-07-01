@@ -6,6 +6,7 @@
     "Microsoft.Bcl.Build": "1.0.21",
     "Microsoft.Net.Http": "2.2.29",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Microsoft.ProjectOxford.Emotion": "1.0.336",
     "Newtonsoft.Json": "9.0.1",
     "SQLitePCLRaw.bundle_green": "1.1.2",
     "Xam.Plugins.TextToSpeech": "2.0.0",
