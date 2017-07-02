@@ -13,8 +13,7 @@ namespace DevDaysSpeakers.Model
         public string Description { get; set; }
         public string Website { get; set; }
         public string Title { get; set; }
-
-        public string Avatar => "http://www.pngall.com/wp-content/uploads/2016/04/Happy-Person-Free-Download-PNG.png";
+        public string Avatar { get; set; }
 
         //Azure information for version
         [Microsoft.WindowsAzure.MobileServices.Version]
