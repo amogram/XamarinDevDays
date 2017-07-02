@@ -32,8 +32,6 @@ namespace DevDaysSpeakers.View
 
         private async void ButtonAnalysed_ClickedAsync(object sender, EventArgs e)
         {
-            // todo: EmotionService could be outdated
-            // take a look at: https://docs.microsoft.com/en-gb/azure/cognitive-services/emotion/quickstarts/csharp//
             var level = await EmotionService.GetAverageHappinessScoreAsync(this.speaker.Avatar);
             await DisplayAlert("Happiness Level", EmotionService.GetHappinessMessage(level), "OK");
         }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.ProjectOxford.Common.Contract;
 using Microsoft.ProjectOxford.Emotion;
+using Microsoft.ProjectOxford.Emotion.Contract;
 
 namespace DevDaysSpeakers.Services
 {
@@ -11,11 +12,9 @@ namespace DevDaysSpeakers.Services
     {
         private static async Task<Emotion[]> GetHappinessAsync(string url)
         {
-            var client = new HttpClient();
-            var stream = await client.GetStreamAsync(url);
-            var emotionClient = new EmotionServiceClient("c5ef418aa79e4610a1c9939bae910c49");
+            var emotionClient = new EmotionServiceClient("29cb5416ff1a499fa754da3cfe7ad529");
 
-            var emotionResults = await emotionClient.RecognizeAsync(stream);
+            var emotionResults = await emotionClient.RecognizeAsync(url);
 
             if (emotionResults == null || !emotionResults.Any())
             {
@@ -28,7 +27,7 @@ namespace DevDaysSpeakers.Services
         //Average happiness calculation in case of multiple people
         public static async Task<float> GetAverageHappinessScoreAsync(string url)
         {
-            Emotion[] emotionResults = await GetHappinessAsync(url);
+            var emotionResults = await GetHappinessAsync(url);
 
             float score = 0;
             foreach (var emotionResult in emotionResults)
@@ -36,7 +35,7 @@ namespace DevDaysSpeakers.Services
                 score = score + emotionResult.Scores.Happiness;
             }
 
-            return score / emotionResults.Count();
+            return score / emotionResults.Length;
         }
 
         public static string GetHappinessMessage(float score)
